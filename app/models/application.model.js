@@ -5,7 +5,7 @@ export class Application extends Sequelize.Model {}
 Application.init(
   {
     status: {
-      type: DataTypes.ENUM("applied", "interview", "rejected", "accepted"),
+      type: DataTypes.ENUM("applied", "interview", "no_response", "offer", "rejected", "accepted"),
       allowNull: false,
       defaultValue: "applied",
     },

@@ -1,13 +1,20 @@
 import express from "express";
 import cors from "cors";
+import morgan from "morgan";
+import swaggerUi from "swagger-ui-express";
 import sequelize from "./app/data/client.js";
 import { router } from "./app/routers/router.js";
+import { swaggerSpec } from "./app/config/swagger.js";
 
 const app = express();
 
 app.use(cors());
+app.use(morgan("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+// Swagger documentation
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 // Router
 app.use("/", router);

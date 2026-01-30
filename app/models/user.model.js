@@ -5,6 +5,14 @@ export class User extends Sequelize.Model {}
 
 User.init(
   {
+    firstName: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    lastName: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     email: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -12,14 +20,6 @@ User.init(
     },
     password: {
       type: DataTypes.TEXT,
-      allowNull: false,
-    },
-    firstName: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    lastName: {
-      type: DataTypes.STRING,
       allowNull: false,
     },
   },

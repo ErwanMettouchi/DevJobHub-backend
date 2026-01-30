@@ -1,0 +1,4 @@
+GET http://localhost:3000/jobs
+
+### 
+GET http://localhost:3000/jobs/2
