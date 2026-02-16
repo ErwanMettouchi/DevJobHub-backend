@@ -1,0 +1,12 @@
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNzcwODg4OTkyLCJleHAiOjE3NzA5NzUzOTJ9.21_N8fphO70hudOjKuiZQIMAG2qnHNcZg_h7kjD-8-M
+
+###
+POST http://localhost:3000/signup
+Content-Type: application/json
+
+{
+    "firstName": "Erwan",
+    "lastName": "Mettouchi",
+    "email": "erwanmettouchi@gmail.com",
+    "password": "Abcd1234?"
+}

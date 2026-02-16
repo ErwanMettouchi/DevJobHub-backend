@@ -1,7 +1,7 @@
 import bcrypt from "bcrypt";
-import jwt from "jsonwebtoken";
 import { User } from "../models/associations.js";
 import { userSchema } from "../schemas/user.schema.js";
+import { generateToken } from "../helpers/jwt.js";
 import { ConflictError } from "../errors/conflict-error.js";
 import { UnauthorizedError } from "../errors/unauthorized-error.js";
 
@@ -23,9 +23,7 @@ export const userController = {
       password: hashedPassword,
     });
 
-    const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, {
-      expiresIn: "24h",
-    });
+    const token = generateToken({ id: user.id }, "24h");
 
     res.status(201).json({
       user: {
@@ -55,9 +53,7 @@ export const userController = {
       return next(new UnauthorizedError("Email ou mot de passe incorrect"));
     }
 
-    const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, {
-      expiresIn: "24h",
-    });
+    const token = generateToken({ id: user.id }, "24h");
 
     res.json({
       user: {
